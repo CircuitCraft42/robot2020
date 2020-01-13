@@ -51,10 +51,10 @@ subsystems:
 #          ###    invertType: OpposeMaster
       shooterThrottle: 0.2 #TODO
       feederMotor:
-        org.usfirst.frc.team449.robot.jacksonWrappers.FPSTalon: #TODO TODO
-          '@id': kickerTalon
+        org.usfirst.frc.team449.robot.jacksonWrappers.FPSSparkMax: #TODO TODO
+          '@id': kickerMotor
           port: 2 #TODO
-          name: kickerTalon
+          name: kickerMotor
           reverseOutput: false
           enableBrakeMode: false
           #voltagePerCurrentLinReg: 0 #TODO
