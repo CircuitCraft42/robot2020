@@ -67,6 +67,8 @@ public class Robot extends TimedRobot {
     /**
      * The method that runs when the robot is turned on. Initializes all subsystems from the map.
      */
+
+    Limelight netTableGetter;
     public void robotInit() {
         //Set up start time
         Clock.setStartTime();
@@ -78,7 +80,7 @@ public class Robot extends TimedRobot {
         System.out.println("Started robotInit.");
 
         RESOURCES_PATH = RobotBase.isReal() ? RESOURCES_PATH_REAL : RESOURCES_PATH_SIMULATED;
-
+        netTableGetter = new Limelight();
         Yaml yaml = new Yaml();
 
         try {
