@@ -238,13 +238,27 @@ commands:
               mechanismsJoystick
           buttonNumber: 3 #X
       command:
-        org.usfirst.frc.team449.robot.subsystem.interfaces.intake.commands.ToggleIntaking:
-          '@id': feederToggleCommand
+        org.usfirst.frc.team449.robot.subsystem.interfaces.intake.commands.SetIntakeMode:
+          '@id': feederEnableCommand
           subsystem:
             org.usfirst.frc.team449.robot.subsystem.interfaces.intake.IntakeSimple:
               feeder
           mode: IN_FAST
       action: WHEN_PRESSED
+    - button:
+        org.usfirst.frc.team449.robot.io.buttons.SimpleButton:
+          '@id': intakeToggleButton
+          joystick:
+            org.usfirst.frc.team449.robot.jacksonWrappers.MappedJoystick:
+              mechanismsJoystick
+          buttonNumber: 4 #Y
+      command:
+        org.usfirst.frc.team449.robot.subsystem.interfaces.intake.commands.SetIntakeMode:
+          '@id': feederDisableCommand
+          subsystem:
+            org.usfirst.frc.team449.robot.subsystem.interfaces.intake.IntakeSimple:
+              feeder
+            mode: OFF
     - button:
         org.usfirst.frc.team449.robot.oi.buttons.SimpleButton:
           '@id': intakeStartButton
