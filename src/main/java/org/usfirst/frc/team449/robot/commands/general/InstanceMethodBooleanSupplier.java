@@ -1,17 +1,25 @@
 package org.usfirst.frc.team449.robot.commands.general;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.wpi.first.wpilibj.Sendable;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
 import java.util.function.BooleanSupplier;
 
-public class InstanceMethodBooleanSupplier<T> implements MappedBooleanSupplier {
+/**
+ *
+ * @param <T>
+ */
+public class InstanceMethodBooleanSupplier<T> implements BooleanSupplier {
     private final BooleanSupplier invoke;
 
     @JsonCreator
-    public InstanceMethodBooleanSupplier(T source, String methodName) throws NoSuchMethodException {
+    public InstanceMethodBooleanSupplier(@JsonProperty(required = true) Subsystem source,
+                                         @JsonProperty(required=true) String methodName) throws NoSuchMethodException {
         Method method = source.getClass().getMethod(methodName);
         this.invoke = () -> {
             try {
